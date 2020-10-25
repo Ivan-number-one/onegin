@@ -45,7 +45,7 @@ int main()
 
 size_t size_file()
 {
-	FILE* ptrFile = fopen("hamlet.txt", "r");
+	FILE* ptrFile = fopen("low.txt", "r");
 	assert (ptrFile != NULL);
 
 	int c = fseek(ptrFile, 0, SEEK_END);
@@ -62,7 +62,7 @@ size_t size_file()
 
 void input_file(char* buf, size_t size)
 {
-	FILE* ptrFile = fopen("hamlet.txt", "r");
+	FILE* ptrFile = fopen("low.txt", "r");
 	assert (ptrFile != NULL);
 	fread(buf, sizeof (char), size, ptrFile);
 	fclose(ptrFile);
@@ -130,6 +130,7 @@ void string_array(long long nStrings, char* buf, str* text)
  	str*  first_string = (str*) str1;
  	str* second_string = (str*) str2;
 
+ 	if (isalpha(first_string->(p + i))
 
 	// printf("%s\n",  first_string->p);
 	// printf("%s\n", second_string->p);
@@ -145,9 +146,10 @@ void string_array(long long nStrings, char* buf, str* text)
 
 	for (int i = 0; i < nStrings; i++)
 	{
-		// if (isspace(((int) *(strings[i].p)) == false)) 
-		fprintf(ptrFile, "%s\n", strings[i].p);
+		if (strings[i].len > 0) 
+		fprintf(ptrFile, "%-s\n", strings[i].p);
 	}
 
 	fclose(ptrFile);
- }
+	// printf("%d\n", strings[0].len);
+ } 
