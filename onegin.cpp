@@ -4,6 +4,24 @@
 #include <ctype.h>
 #include <string.h>
 
+/*TODO: 1) юнит тесты на компаратор, обязаельно, тестируй его на небольших строках и смотри что выводит
+            можешь сделать отдельный файл tests который будешь передавать программе
+        2) strcmp для сортировки с первого символа в строке без игнорирования сепараторов окей, проверь как она работает
+            опять же на юнит тестах. Пример юнит тестов ниже
+        3) сравнение в обратную сторону */
+
+
+void unit_test_1 { //пример не на файле, а на обычной ручной строке, так тоже хорошо делать
+    printf("Test 1 running...\n");
+    char string_1[] = "aabCd";
+    char string_2[] = "aabD;";
+    int res = comparator(string_1, string_2);
+
+    assert(res < 0);
+    printf("TEST 1 PASSED");
+
+}
+
 struct string {
 	char* p;
 	int len;
@@ -82,12 +100,15 @@ long long separator(char* buf, size_t size)
 
 	for (int i = 0; i < size; i++)
 	{
-		if (buf[i] == '\n')
-		{ 
+		if (buf[i] == '\n' // strchr (check man strchr)
+        while ((c = strchr(buf, '\n')) != NULL) {
+            c = '\0';
+            ++c;
+        }
 			buf[i] = '\0';
 			nStrings++;
 		}
-	}
+    }
 
 	// for (int i = 0; i < size; i++)
 	// {
