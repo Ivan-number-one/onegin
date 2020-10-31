@@ -4,6 +4,9 @@
 #include <ctype.h>
 #include <string.h>
 
+
+///
+
 struct string {
 	char* p;
 	int len;
@@ -11,53 +14,53 @@ struct string {
 
 typedef struct string str;
 
-size_t size_file();
-void input_file(char* buf, size_t size);
-long long separator(char* buf, size_t size);
-void string_array(long long nStrings, char* buf, str* text);
-int comparator(const void *str1, const void *str2);
-void output_file(long long nStrings, str* strings);
+// size_t size_file();
+// void input_file(char* buf, size_t size);
+// long long separator(char* buf, size_t size);
+// void string_array(long long nStrings, char* buf, str* text);
+// int comparator(const void *str1, const void *str2);
+// void output_file(long long nStrings, str* strings);
 
 
 
-int main()
-{
-	size_t size = size_file();
-	char* buf = (char*) calloc (size + 1, sizeof (char));
-	input_file(buf, size);
-	long long nStrings = separator(buf, size);
+// int main()
+// {
+// 	size_t size = size_file();
+// 	char* buf = (char*) calloc (size + 1, sizeof (char));
+// 	input_file(buf, size);
+// 	long long nStrings = separator(buf, size);
 	
-	str* strings = (str*) calloc (nStrings + 1, sizeof (str));
-	assert (strings != NULL);
-	string_array(nStrings, buf, strings);
+// 	str* strings = (str*) calloc (nStrings + 1, sizeof (str));
+// 	assert (strings != NULL);
+// 	string_array(nStrings, buf, strings);
 
-	qsort(strings, nStrings, sizeof (str), &comparator);
-	output_file(nStrings, strings);
-	// printf("%d\n", comparator(strings, strings + 1));
+// 	qsort(strings, nStrings, sizeof (str), &comparator);
+// 	output_file(nStrings, strings);
+// 	// printf("%d\n", comparator(strings, strings + 1));
 
 
 	
-	free (buf);
-	free (strings);
+// 	free (buf);
+// 	free (strings);
 
-	return 0;
-}
+// 	return 0;
+// }
 
-size_t size_file()
-{
-	FILE* ptrFile = fopen("low.txt", "r");
-	assert (ptrFile != NULL);
+// size_t size_file()
+// {
+// 	FILE* ptrFile = fopen("low.txt", "r");
+// 	assert (ptrFile != NULL);
 
-	int c = fseek(ptrFile, 0, SEEK_END);
-	assert (c == 0);
-	// assert ((feof(ptrFile + 1)) != 0);
-	size_t size = ftell(ptrFile);
-	assert (size > 0);
-	fclose(ptrFile);
+// 	int c = fseek(ptrFile, 0, SEEK_END);
+// 	assert (c == 0);
+// 	// assert ((feof(ptrFile + 1)) != 0);
+// 	size_t size = ftell(ptrFile);
+// 	assert (size > 0);
+// 	fclose(ptrFile);
 
-	// printf("Size of file: %ld\n", size);
-	return size; 
-}
+// 	// printf("Size of file: %ld\n", size);
+// 	return size; 
+// }
 
 
 void input_file(char* buf, size_t size)
