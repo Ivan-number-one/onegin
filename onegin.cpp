@@ -15,6 +15,7 @@ char* input_file(size_t* size, char** argv);
 long long separator(char* buf, size_t size);
 void string_array(long long nStrings, char* buf, str* text);
 int comparator(const void *str1, const void *str2);
+void changer(char sym, char* letter);
 void output_file(long long nStrings, str* strings);
 
 
@@ -32,7 +33,10 @@ int main(int argc, char** argv)
 	qsort(strings, nStrings, sizeof (str), &comparator);
 	output_file(nStrings, strings);
 	// printf("%d\n", comparator(strings, strings + 1));
-
+	for (int i = 0; i < strings[0].len; i++)
+	{
+		printf("symbol: %c  code: %d\n", *(strings[0].p + i), *(strings[0].p + i));
+	}
 
 	
 	free (buf);
@@ -115,54 +119,62 @@ void string_array(long long nStrings, char* buf, str* text)
  	str* str1 = (str*) first_string;
  	str* str2 = (str*) second_string;
 
-    int max_len = 0;
- 	int k1, k2  = 0;
- 	if ((str1->len) > (str2->len)) max_len = str1->len;
-    else max_len = str2->len;
+    
+ 	int  k1 = 0, k2  = 0;
+ 	char letter1 = 0, letter2 = 0; 
 
- 	for (; (k1 < str1->len) && (k2 < str2->len) && (str1->p[k1] != '\0') && (str2->p[k2] != '\0'); )
+ 	while ((k1 < str1->len) && (k2 < str2->len))
  	{
- 		if (isalpha(str1->p[k1]) != 0 && isalpha(str2->p[k2]) != 0)                   // a*a ba
- 		{                                                                             // aabc
- 			if      (str1->p[k1] >  str2->p[k2]) return  1;                           // max_len = 5
- 			else if (str1->p[k1] <  str2->p[k2]) return -1;
- 			else if (str1->p[k1] == str2->p[k2]) 
+ 		if (isalpha(str1->p[k1]) != 0 && isalpha(str2->p[k2]) != 0)                 
+ 		{
+ 			letter1 = str1->p[k1];
+ 			letter2 = str2->p[k2];
+ 			if (letter1 < 'a')        
+ 		    changer(letter1, &letter1);
+ 		    if (letter2 < 'a')        
+ 		    changer(letter2, &letter2);                                                                
+ 			if (letter1 >  letter2) return  1;        // Acts little of his will. Tell me, Laertes,                  
+ 			if (letter1 <  letter2) return -1;        // ACT V
+ 			if (letter1 == letter2) 
  				{
  					k1++;
  					k2++;
- 					// i++;
+ 					continue;
  				}
-
- 			// if (i - 1 == max_len) return 0;
  		}
 
- 		else
- 		{
- 		if      (isalpha(str1->p[k1]) == 0 && isalpha(str2->p[k2]) != 0) k1++;
- 		else if (isalpha(str1->p[k1]) != 0 && isalpha(str2->p[k2]) == 0) k2++;
- 		else if (isalpha(str1->p[k1]) == 0 && isalpha(str2->p[k2]) == 0)
+ 	
+ 		if (isalpha(str1->p[k1]) == 0 && isalpha(str2->p[k2]) != 0) k1++;
+ 		if (isalpha(str1->p[k1]) != 0 && isalpha(str2->p[k2]) == 0) k2++;
+ 		if (isalpha(str1->p[k1]) == 0 && isalpha(str2->p[k2]) == 0)
 			{
 				k1++;
 				k2++;
 			}
-		// i++;
-		}
 	}
 
- 	// if (isalpha(first_string->(p + i))
 
 	// printf("%s\n", str1->p);
 	// printf("%s\n", str2->p);
 	// printf("%c\n", str2->p[1]);
-	// printf("%d\n", max_len);
 
- 	// return strcmp(first_string->p, second_string->p);
- 	return 0;
+ 	return str1->len - str2->len;
  }
 
+
+
+ void changer(char sym, char* letter)
+{
+	// z - a = Z - A
+	// a = z - Z + A
+
+	*letter = 	'z' - ('Z' - sym);
+}
+
  
+
  void output_file(long long nStrings, str* strings)
- {
+{
  	FILE* ptrFile = fopen("output.txt", "w");
 	assert (ptrFile != 0);
 
@@ -175,3 +187,59 @@ void string_array(long long nStrings, char* buf, str* text)
 	fclose(ptrFile);
 	// printf("%d\n", strings[0].len);
  } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
