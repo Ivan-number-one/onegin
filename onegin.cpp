@@ -4,6 +4,7 @@
 #include <ctype.h>
 #include <string.h>
 
+
 struct string {
 	char* p = NULL;
 	int len = 0;
