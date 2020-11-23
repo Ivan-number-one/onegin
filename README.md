@@ -8,7 +8,7 @@ The program supports Russian and English. The Russian text must be in cp1251 enc
 Compile program:
   1. In terminal:
 ``` 
-gcc onegin.cpp -o app
+gcc onegin.cpp main.cpp -g -o app
 ./app "Name_of_file"
 ```
 
