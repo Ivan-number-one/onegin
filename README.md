@@ -8,14 +8,24 @@ The program supports Russian and English. The Russian text must be in cp1251 enc
 Compile program:
   1. In terminal:
 ``` 
+make onegin
+./onegin "Name_of_file"
+
+or
+
 gcc onegin.cpp main.cpp -g -o app
 ./app "Name_of_file"
 ```
 
 Example:
 ```
-./app "hamlet.txt"
-./app "onegin.txt"
+make onegin
+./onegin "onegin.txt"
+
+or
+
+gcc onegin.cpp main.cpp -g -o onegin
+./onegin "hamlet.txt"
 ```
   2. Your sorted text is in "output.txt"
   
