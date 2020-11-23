@@ -17,7 +17,7 @@ Example:
 ./app "hamlet.txt"
 ./app "onegin.txt"
 ```
-  2. Your sorted text is in "Text_sorted.txt"
+  2. Your sorted text is in "output.txt"
   
 for ♂stA$$♂
 
