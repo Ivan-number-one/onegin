@@ -10,9 +10,9 @@ Compile program:
 ``` 
 make onegin
 ./onegin "Name_of_file"
-
+``` 
 or
-
+``` 
 gcc onegin.cpp main.cpp -g -o app
 ./app "Name_of_file"
 ```
@@ -21,9 +21,9 @@ Example:
 ```
 make onegin
 ./onegin "onegin.txt"
-
+``` 
 or
-
+``` 
 gcc onegin.cpp main.cpp -g -o onegin
 ./onegin "hamlet.txt"
 ```
