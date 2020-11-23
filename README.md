@@ -7,6 +7,7 @@ The program supports Russian and English. The Russian text must be in cp1251 enc
 
 Compile program:
   1. In terminal:
+  Use makefile.
 ``` 
 make onegin
 ./onegin "Name_of_file"
