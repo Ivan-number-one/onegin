@@ -1,3 +1,0 @@
-TEST 1 passed
-TEST 2 passed
-TEST 3 passed
