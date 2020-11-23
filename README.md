@@ -22,11 +22,7 @@ Example:
 make onegin
 ./onegin "onegin.txt"
 ``` 
-or
-``` 
-gcc onegin.cpp main.cpp -g -o onegin
-./onegin "hamlet.txt"
-```
+
   2. Your sorted text is in "output.txt"
   
 for ♂stA$$♂
